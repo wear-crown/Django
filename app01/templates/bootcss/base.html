@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://v3.bootcss.com/examples/dashboard/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+
+    <title>学生管理系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootcss/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static 'bootcss/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'bootcss/css/dashboard.css' %}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{% static 'bootcss/js/ie-emulation-modes-warning.js' %}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        th{
+            text-align: center;
+        }
+    </style>>
+  </head>
+
+  <body>
+
+  {% include 'bootcss/head.html' %}
+
+    <div class="container-fluid">
+      <div class="row">
+
+      {% include 'bootcss/menu.html' %}
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        {% block main %}
+        我是公共部分
+        {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'bootcss/js/jquery.min.js' %}"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{% static 'bootcss/js/bootstrap.min.js' %}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'bootcss/js/holder.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'bootcss/js/ie10-viewport-bug-workaround.js' %}"></script>
+
+
+<div id="qb-sougou-search" style="display: none; opacity: 0;"><p><trans oldtip="搜索" newtip="搜索">搜索</trans></p><p class="last-btn"><trans oldtip="复制" newtip="复制">复制</trans></p>
+    <iframe src="">
+
+    </iframe>
+</div></body><div id="qbTrans-pageTrans-dialog">
+    <!---->
+    <span class="qbTrans-pageTrans-dialog-success" style="display: none;">
+
+    </span>
+    <span class="qbTrans-pageTrans-dialog-text">是否将当前网页翻译成中文</span>
+    <div class="qbTrans-pageTrans-dialog-btn">网页翻译</div>
+    <div class="qbTrans-pageTrans-dialog-btn-empty">中英对照</div>
+    <!---->
+    <div class="qbTrans-pageTrans-dialog-close">
+        <span class="qbTrans-pageTrans-dialog-close-text">关闭</span>
+        <span class="qbTrans-pageTrans-dialog-arrow-down"></span>
+        <ul class="qbTrans-pageTrans-dialog-menu" style="display: none;">
+            <li class="qbTrans-pageTrans-dialog-menu-item">此网站不再提醒</li>
+            <li class="qbTrans-pageTrans-dialog-menu-item">所有网站不再提醒</li>
+            <!---->
+        </ul>
+    </div>
+</div>
+</html>

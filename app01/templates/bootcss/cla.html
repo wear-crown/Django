@@ -1,0 +1,28 @@
+{% extends 'bootcss/base.html' %}
+
+{% block main %}
+<table class="table table-bordered table-hover" >
+    <thead>
+       <tr >
+           <th >班级ID
+           </th>
+           <th >班级姓名</th>
+           <th >班级人数
+           </th>
+           <th colspan="2">操作</th>
+       </tr>
+    </thead>
+         <tbody>
+            {% for cls in class_list %}
+                <tr >
+                    <td >{{ cls.id }}</td>
+                    <td >{{ cls.name }}</td>
+                    <td >{{ cls.student_set.count}}</td>
+                    <td >
+                        <a href="{% url 'student_manage:del_class' %}?name={{ cls.name}}" onclick="return confirm('确定要删除吗？')">删除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+{% endblock %}

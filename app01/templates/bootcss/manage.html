@@ -1,0 +1,54 @@
+{% extends 'bootcss/base.html' %}
+
+{% block main %}
+<table class="table table-bordered table-hover" >
+    <thead>
+       <tr >
+           <th >学号
+               <a href="?order=number&ruler=up&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-up"></span></a>
+               <a href="?order=number&ruler=down&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-down"></span></a>
+           </th>
+           <th >照片</th>
+           <th >姓名</th>
+           <th >年龄
+               <a href="?order=age&ruler=up&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-up"></span></a>
+               <a href="?order=age&ruler=down&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-down"></span></a>
+           </th>
+           <th >成绩
+               <a href="?order=score&ruler=up&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-up"></span></a>
+               <a href="?order=score&ruler=down&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-down"></span></a>
+           </th>
+           <th >班级
+               <a href="?order=date_add&ruler=up&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-up"></span></a>
+               <a href="?order=date_add&ruler=down&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-down"></span></a>
+           </th>
+           <th >邮箱</th>
+           <th >添加时间
+               <a href="?order=date_add&ruler=up&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-up"></span></a>
+               <a href="?order=date_add&ruler=down&keyword={{ keyword }}"><span class="glyphicon glyphicon-arrow-down"></span></a>
+           </th>
+           <th colspan="2">操作</th>
+       </tr>
+    </thead>
+         <tbody>
+            {% for stuinfo in stuinfo_list %}
+                <tr >
+                    <td >{{ stuinfo.number }}</td>
+                    <td ><img src="{{ stuinfo.avatar.url }}" alt="{{ stuinfo.name }}" width="80" height="80"></td>
+                    <td >{{ stuinfo.name }}</td>
+                    <td >{{ stuinfo.age}}</td>
+                    <td >{{ stuinfo.score }}</td>
+                    <td >{{ stuinfo.cls.name }}</td>
+                    <td >{{ stuinfo.email }}</td>
+                    <td >{{ stuinfo.date_add | date:'Y-m-d H:i:s'}}</td>
+                    <td >
+                        <a href="{% url '[student_manage]:del' %}?id={{ stuinfo.id}}" onclick="return confirm('确定要删除吗？')">删除</a>
+                    </td>
+                    <td ><a href="{% url '[student_manage]:update' %}?id={{ stuinfo.id}}">修改</a></td>
+                </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+    <!--分页模板-->
+    {% include 'bootcss/page.html' %}
+{% endblock %}

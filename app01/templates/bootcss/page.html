@@ -1,0 +1,33 @@
+<nav aria-label="Page navigation" class="text-center">
+  <ul class="pagination">
+      <!--上一页-->
+    <li>
+        {% if previous_page %}
+      <a href="?pn={{ previous_page }}&keyword={{ keyword }}&order={{ request.GET.order }}&ruler={{ request.GET.ruler }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+        {% endif %}
+    </li>
+      <!--页码-->
+      {% for page in page_number %}
+          {% if page == pn %}
+            <li class="active"><a href="?pn={{ page }}">{{ page }}</a></li>
+          {% else %}
+            <li><a href="?pn={{ page }}">{{ page }}</a></li>
+          {% endif %}
+      {% endfor %}
+
+      <!--下一页-->
+    <li>
+      <a href="?pn={{ next_page }}&keyword={{ keyword }}&order={{ request.GET.order }}&ruler={{ request.GET.ruler }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+
+    <ul>
+        <li>
+        第 {{ pn }} 页 共 {{ page_num }} 页
+        </li>
+    </ul>
+</nav>

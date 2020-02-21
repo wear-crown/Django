@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>登录</title>
+      <link rel="stylesheet" href="{% static 'login/css/style.css' %}" type="text/css">
+</head>
+<body>
+  <div id="clouds">
+	<div class="cloud x1"></div>
+	<!-- Time for multiple clouds to dance around -->
+	<div class="cloud x2"></div>
+	<div class="cloud x3"></div>
+	<div class="cloud x4"></div>
+	<div class="cloud x5"></div>
+    <div class="cloud x6"></div>
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x5"></div>
+    <div class="cloud x1"></div>
+    <div class="cloud x5"></div>
+    <div name="message" style="color: red;text-align:center;font-size: 20px">
+        {%if message %}
+            {{ message }}
+        {% endif %}
+  </div>
+</div>
+ <div class="container">
+      <div id="login">
+        <form  action="" method="post">
+              {%  csrf_token %}
+          <fieldset class="clearfix">
+           <span class="fontawesome-user">用户名：</span>
+          <input type="text" name="username" placeholder="请输入用户名">
+          <br>
+          <span class="fontawesome-lock"> 密码 </span>
+          <input type="password" name="password" placeholder="请输入密码">
+          <br>
+          <p><input type="submit" value="提交"></p>
+          </fieldset>
+        </form>
+        <p>没有账号? <a href="{% url 'student_manage:register' %}" class="blue">现在去注册</a><span class="fontawesome-arrow-right"></span></p>
+      </div> <!-- end login -->
+    </div>
+</body>
+</html>

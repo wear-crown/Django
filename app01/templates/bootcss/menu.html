@@ -1,0 +1,38 @@
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="{{ bootcss }}">
+                <a href="{% url 'student_manage:index' %}">
+                    <trans oldtip="Overview " newtip="概述">增加学生 </trans>
+                    <span class="sr-only"><trans oldtip="(current)" newtip="(目前)">(current)</trans>
+                    </span>
+                </a>
+            </li>
+            <li class="{{ manage }}">
+                <a href="{% url 'student_manage:manage' %}">
+                    <trans oldtip="Reports" newtip="报告">学生管理</trans>
+                </a>
+            </li>
+            <li class="{{ config }}">
+                <a href="{% url 'student_manage:config' %}">
+                    <trans oldtip="Analytics" newtip="分析学">系统配置</trans>
+                </a>
+            </li>
+            <li class="{{ other }}">
+                <a href="{% url 'student_manage:other' %}">
+                    <trans oldtip="Export" newtip="出口">其他配置</trans>
+                </a>
+            </li>
+          </ul>
+          <ul class="nav nav-sidebar">
+              <li class="{{ class_add }}">
+                <a href="{% url 'student_manage:class_add' %}">
+                    <trans oldtip="Another nav item" newtip="另一个导航项目">班级添加</trans>
+                </a>
+            </li>
+            <li class="{{ cla }}">
+                <a href="{% url '[student_manage]:cla' %}">
+                    <trans oldtip="Another nav item" newtip="另一个导航项目">班级管理</trans>
+                </a>
+            </li>
+          </ul>
+        </div>

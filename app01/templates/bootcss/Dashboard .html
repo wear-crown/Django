@@ -1,0 +1,51 @@
+{% extends 'bootcss/base.html' %}
+
+{% block main %}
+ <div>
+        <form action ="{% url '[student_manage]:index' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <table class="table" style="border-style:none;width: 50%"  >
+                <tr>
+                    <td style="border-style:none">学    号：</td>
+                    <td style="border-style:none"><input name="number"></td>
+                </tr>
+                <tr>
+                    <td style="border-style:none">姓    名：</td>
+                    <td style="border-style:none"><input name="name"></td>
+                </tr>
+                <tr>
+                    <td style="border-style:none">年龄：</td>
+                    <td style="border-style:none"><input name="age"></td>
+                </tr>
+                <tr>
+                    <td style="border-style:none">成绩：</td>
+                    <td style="border-style:none"><input name="score"></td>
+                </tr>
+                <tr>
+                    <td style="border-style:none">班级：</td>
+                    <td style="border-style:none">
+                        <select class="form-control" name="cls">
+                            {% for cls in classes %}
+                            <option value="{{ cls.id }}">{{ cls.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-style:none">邮箱：</td>
+                    <td style="border-style:none"><input name="email"></td>
+                </tr>
+            <tr>
+                    <td style="border-style:none">头像：</td>
+                    <td style="border-style:none">
+                        <input type="file" name="avatar">
+                    </td>
+                </tr>
+            <span style="color: red">{{ error }}</span>
+            </table>
+            <div class="form-group col-md-3">
+                <input class="form-control btn btn-danger" type="submit" value="添加">
+            </div>
+        </form>
+    </div>
+{% endblock %}

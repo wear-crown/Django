@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册页</title>
+  <link rel="stylesheet" href="{% static 'login/css/register.css' %}"  crossorigin="anonymous">
+  <script src="{% static 'login/js/register.js' %}"  crossorigin="anonymous"></script>
+  <style>
+    html,body{
+	width:100%;
+	height:100%
+}
+    body{
+  font-family: "华文细黑";
+  background:url({% static "login/images/register.jpg" %}) no-repeat;
+  background-size: 100%;
+}
+  </style>
+
+</head>
+<body  >
+<h3 style="text-align: center;color: indianred">注册页</h3>
+<div name="message">
+  {% if message %}
+ <p style="text-align: center;"><a href="{% url 'student_manage:login' %}" style="font-size: 25px;color: red;
+">{{ message }}</a></p>
+  {% endif %}
+
+</div >
+<form action="{% url 'student_manage:register' %}" method="post">
+  {%csrf_token%}
+<div  style="padding-left: 350px;padding-right: 350px" class="img">
+  <div class="input-group input-group-lg">
+       <span class="input-group-addon" id="sizing-addon1">用户名：</span>
+      <input  type="text" class="form-control" aria-describedby="sizing-addon1" name="username" placeholder="用户名1-20个字（特殊符号禁止）">
+  </div>
+  <div class="input-group input-group-lg">
+     <span class="input-group-addon" id="sizing-addon1">密码：</span>
+    <input type="password"  class="form-control" aria-describedby="sizing-addon1" name="password" placeholder="1-20字符">
+  </div>
+  <div class="input-group input-group-lg" style="color: #606468">
+    <span class="input-group-addon" id="sizing-addon1">邮箱：</span>
+    <input type="email" name="email"  class="form-control" aria-describedby="sizing-addon1"  placeholder="请输入邮箱" required="required">
+  </div>
+  <div class="input-group input-group-lg">
+    <input type="submit" value="确认注册">
+  </div>
+</div>
+</form>
+</body>
+</html>

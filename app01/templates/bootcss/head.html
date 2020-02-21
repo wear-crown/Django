@@ -1,0 +1,24 @@
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only"><trans oldtip="Toggle navigation" newtip="切换导航">Toggle navigation</trans></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url '[student_manage]:home_page' %}"><trans oldtip="Project name" newtip="项目名称">学生管理系统</trans></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url '[student_manage]:home_page' %}"><trans oldtip="Dashboard" newtip="仪表盘">{{ username_now }}</trans></a></li>
+            <li><a href="{% url '[student_manage]:home_page' %}"><trans oldtip="Settings" newtip="设置">Settings</trans></a></li>
+            <li><a href="{% url '[student_manage]:home_page' %}"><trans oldtip="Profile" newtip="剖面图">Profile</trans></a></li>
+            <li><a href="{% url 'student_manage:logout' %}"><trans oldtip="Logout" newtip="退出">退出</trans></a></li>
+          </ul>
+          <form action="{% url 'student_manage:manage' %}" class="navbar-form navbar-right" method="get">
+            <input type="text" class="form-control" placeholder="Search..." name="keyword">
+          </form>
+        </div>
+      </div>
+    </nav>
